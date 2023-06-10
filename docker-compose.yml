@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  mopscoin:
+    image: mopscoin
+    build:
+      context: .
+      dockerfile: ./Dockerfile

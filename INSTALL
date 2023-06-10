@@ -1,0 +1,9 @@
+Building Mopscoin
+
+See doc/readme-qt.rst for instructions on building Mopscoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Mopscoin.
+
+See doc/build-*.txt for instructions on building mopscoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Mopscoin.
