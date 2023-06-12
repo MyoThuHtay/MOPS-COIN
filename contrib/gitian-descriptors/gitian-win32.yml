@@ -11,10 +11,10 @@ packages:
 - "unzip"
 - "nsis"
 - "faketime"
-reference_datetime: "2011-01-30 00:00:00"
+reference_datetime: "2023-06-11 00:00:00"
 remotes:
-- "url": "https://github.com/mopscoin-project/mopscoin.git"
-  "dir": "mopscoin"
+- "url": "https://github.com/MyoThuHtay/MOPS-Chain.git"
+  "dir": "MOPS-Chain"
 files:
 - "qt-win32-4.8.5-gitian-r8.zip"
 - "boost-win32-1.55.0-gitian-r6.zip"

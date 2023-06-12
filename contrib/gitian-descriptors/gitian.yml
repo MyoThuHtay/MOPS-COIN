@@ -18,10 +18,10 @@ packages:
 - "unzip"
 - "pkg-config"
 - "libpng12-dev"
-reference_datetime: "2011-01-30 00:00:00"
+reference_datetime: "2023-06-11 00:00:00"
 remotes:
-- "url": "https://github.com/mopscoin-project/mopscoin.git"
-  "dir": "mopscoin"
+- "url": "https://github.com/MyoThuHtay/MOPS-Chain.git"
+  "dir": "MOPS-Chain"
 files:
 - "miniupnpc-1.9.20140401.tar.gz"
 - "qrencode-3.4.3.tar.bz2"
