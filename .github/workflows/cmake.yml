@@ -1,17 +1,17 @@
-name: CMake
+name: CI
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
-env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
-  BUILD_TYPE: Release
+
 
 jobs:
-  build:
+  release_ubuntu:
+    name: Ubuntu Release
     # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
     # You can convert this to a matrix build if you need cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
@@ -19,15 +19,34 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Configure CMake
-      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    - name: Create Build Directory
+      run: cmake -E make_directory ${{github.workspace}}/build 
+    - name: Install Packages
+      run: |
+        sudo apt-get update -y
+        sudo apt-get install build-essential gcc make perl dkms -y
+        sudo apt-get install git -y
+        sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils 
+        sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev 
+        sudo apt-get install libboost-all-dev -y
+        sudo apt-get install software-properties-common
+        sudo add-apt-repository ppa:bitcoin/bitcoin
+        sudo apt-get update
+        sudo apt-get install libdb4.8-dev libdb4.8++-dev
+        sudo apt-get install libminiupnpc-dev
+        sudo apt-get install libzmq3-dev
+        sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler 
+        sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
+        sudo apt-get install openssl1.0
+        sudo apt-get install libssl1.0-dev 
+    
+    - name: Configure cmake
+      run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=${{github.workspace}}/src/makefile.unix
+   
 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build --config Release
 
     - name: Test
       working-directory: ${{github.workspace}}/build
