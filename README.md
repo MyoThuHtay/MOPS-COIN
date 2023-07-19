@@ -9,7 +9,7 @@ What is Mopscoin?
 ----------------
 
 Mopscoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
- - 5 seconds block targets
+ - 15 seconds block targets
  - subsidy halves in 420k blocks (~4 years)
  - ~500 million total coins
 
