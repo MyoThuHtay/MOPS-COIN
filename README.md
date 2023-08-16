@@ -1,21 +1,25 @@
 Mopscoin integration/staging tree
 ================================
 
+http://www.mopschain.site
 
 Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2023-2024 Mopscoin Developers
+Copyright (c) 2011-2014 Litecoin Developers
+Copyright (c) 2023-2024 mopscoin Developers
 
 What is Mopscoin?
 ----------------
 
 Mopscoin is a lite version of Bitcoin using scrypt as a proof-of-work algorithm.
  - 15 seconds block targets
- - subsidy halves in 420k blocks (~4 years)
+ - subsidy halves in 5000k blocks 
  - ~500 million total coins
 
+The rest is the same as Bitcoin.
+ - 50 coins per block
 
-
-
+For more information, as well as an immediately useable, binary version of
+the Mopscoin client sofware, see http://www.mopschain.site.
 
 License
 -------
@@ -41,7 +45,7 @@ match the project's coding conventions (see `doc/coding.txt`) or are
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable.  are created
+completely stable. [Tags](https://github.com/mopscoin-project/mopscoin/tags) are created
 regularly to indicate new official, stable release versions of Mopscoin.
 
 Testing
